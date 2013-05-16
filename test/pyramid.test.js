@@ -149,7 +149,7 @@ describe('pyramid enumeration scheme', function() {
             finished: function() {
                 assert.equal(scheme.stats.total, 21);
                 assert.equal(scheme.stats.pending, 0);
-                assert.equal(scheme.stats.unique, 21);
+                assert.equal(scheme.stats.unique, 38);
                 assert.equal(scheme.stats.duplicate, 0);
                 assert.equal(scheme.stats.failed, 0);
                 assert.equal(scheme.stats.skipped, 0);

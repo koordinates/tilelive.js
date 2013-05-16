@@ -139,7 +139,7 @@ describe('scanline enumeration scheme', function() {
             },
             finished: function() {
                 assert.deepEqual(tiles, [
-                    '0/0/0',
+                    '0/0/0', '0/1/0', '0/0/1', '0/1/1',
 
                     '1/0/0', '1/1/0', '1/0/1', '1/1/1',
 
@@ -205,14 +205,15 @@ describe('scanline enumeration scheme', function() {
             },
             finished: function() {
                 assert.deepEqual(tiles, [
-                    '2/2/2', '2/3/2', // incomplete metatile
+                    '2/2/2', '2/3/2', '2/2/3', '2/3/3',
 
-                    '3/4/4', '3/5/4', '3/6/4', '3/7/4',
+                    '3/4/4', '3/5/4', '3/4/5', '3/5/5',
+                    '3/6/4', '3/7/4', '3/6/5', '3/7/5',
 
-                    '4/9/8', '4/9/9', // incomplete metatile
+                    '4/8/8', '4/9/8', '4/8/9', '4/9/9',
                     '4/10/8', '4/11/8', '4/10/9', '4/11/9',
                     '4/12/8', '4/13/8', '4/12/9', '4/13/9',
-                    '4/14/8', '4/14/9' // incomplete metatile
+                    '4/14/8', '4/15/8', '4/14/9', '4/15/9'
                 ]);
                 done();
             }
