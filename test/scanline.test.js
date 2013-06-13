@@ -139,7 +139,7 @@ describe('scanline enumeration scheme', function() {
             },
             finished: function() {
                 assert.deepEqual(tiles, [
-                    '0/0/0', '0/1/0', '0/0/1', '0/1/1',
+                    '0/0/0',
 
                     '1/0/0', '1/1/0', '1/0/1', '1/1/1',
 
@@ -191,7 +191,7 @@ describe('scanline enumeration scheme', function() {
                 3: { minX: 4, minY: 4, maxX: 7, maxY: 4 },
                 4: { minX: 9, minY: 8, maxX: 14, maxY: 9 }
             },
-            stats: { history: [], total: 18 },
+            stats: { history: [], total: 28 },
             pos: { z: 2, x: 0, y: 2 },
             box: [],
             pending: []
