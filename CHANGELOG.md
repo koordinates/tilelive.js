@@ -1,3 +1,21 @@
+## 4.5.3
+
+* Add tilelive.auto method from tilelive-copy for detection and autoloading of
+  protocol modules.
+
+## 4.5.2
+
+* Declare support for node v0.10.x in package.json
+
+## 4.5.1
+
+* Minor package.json fixes and updated dependencies
+
+## 4.5.0
+
+* Bug fixes.
+* Removes underscore, step dependencies.
+
 ## 4.4.0
 
 * Remove deprecated tilelive.copy method in favor of CopyTask.

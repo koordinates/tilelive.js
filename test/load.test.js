@@ -1,7 +1,5 @@
 var assert = require('assert');
-var Step = require('step');
-
-var tilelive = require('..');
+var tilelive = require('../');
 tilelive.protocols['mbtiles:'] = require('mbtiles');
 tilelive.protocols['tilejson:'] = require('tilejson');
 
@@ -155,11 +153,12 @@ describe('loading', function() {
 
             assert.deepEqual(data, info);
 
-            Step(function() {
-                for (var i = 0; i < handlers.length; i++) {
-                    handlers[i].close(this.parallel());
-                }
-            }, done);
+            var doit = function(err) {
+                if (err) return done(err);
+                if (!handlers.length) return done();
+                handlers.shift().close(doit);
+            };
+            doit();
         });
     });
 });
