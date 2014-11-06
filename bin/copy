@@ -45,15 +45,12 @@ var argv = optimist
     })
     .argv;
 
-if (argv.job) {
-    try {
-        var job = JSON.parse(fs.readFileSync(path.resolve(argv.job), 'utf8'));
-    } catch(err) {
-        if (err.code !== 'EBADF' && err.code !== 'ENOENT') throw err;
-    }
+if (argv.job && fs.existsSync(path.resolve(argv.job))) {
     console.warn('Continuing job ' + argv.job);
-    auto(job.from);
-    auto(job.to);
+    var job = JSON.parse(fs.readFileSync(path.resolve(argv.job), 'utf8'));
+    // register protocols
+    tilelive.auto(job.from.href);
+    tilelive.auto(job.to.href);
     var scheme = Scheme.unserialize(job.scheme);
     var task = new CopyTask(job.from, job.to, scheme, argv.job);
 } else {
